@@ -14,7 +14,7 @@ export default class MasonrySimple {
 
 		this.grid.style.contain = 'layout'
 
-		this.resizeAllItems = this.debounce(this.resizeAllItems.bind(this), 200)
+		this.resizeAllItems = this.debounce(this.resizeAllItems.bind(this), 10)
 	}
 
 	resizeItem(item) {

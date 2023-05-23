@@ -13,7 +13,7 @@ class $cf838c15c8b009ba$export$2e2bcd8739ae039 {
             this.resizeObserver.unobserve(this.grid);
         });
         this.grid.style.contain = "layout";
-        this.resizeAllItems = this.debounce(this.resizeAllItems.bind(this), 200);
+        this.resizeAllItems = this.debounce(this.resizeAllItems.bind(this), 10);
     }
     resizeItem(item) {
         const rowHeight = 1;
