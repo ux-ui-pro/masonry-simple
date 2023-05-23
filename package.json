@@ -1,0 +1,35 @@
+{
+  "name": "masonry-simple",
+  "version": "0.0.1",
+  "description": "Responsive masonry grid",
+  "author": "ux-ui.pro",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ux-ui-pro/media-trigger.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ux-ui-pro/media-trigger/issues"
+  },
+  "source": "src/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.module.js",
+  "unpkg": "dist/index.umd.js",
+  "scripts": {
+    "serve": "parcel watch",
+    "build": "parcel build",
+    "clean": "rm -rf dist .parcel-cache"
+  },
+  "devDependencies": {
+    "parcel": "^2.8.3"
+  },
+  "keywords": [
+    "masonry",
+    "layout",
+    "grid",
+    "gallery",
+    "images"
+  ]
+}
+
+

@@ -1,0 +1,10 @@
+/.idea
+/node_modules
+/.parcel-cache
+/.parcel
+/**/*.log
+/**/*.txt
+Thumbs.db
+memo.md
+package-lock.json
+yarn.lock
