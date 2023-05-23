@@ -13,6 +13,16 @@
 </div>
 <br>
 
+### Installation
+```javascript
+$ yarn add masonry-simple
+```
+<sup>or</sup>
+```javascript
+$ npm i masonry-simple
+```
+<br>
+
 ### Import
 ```javascript
 import MasonrySimple from 'masonry-simple'
