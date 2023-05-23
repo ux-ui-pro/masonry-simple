@@ -1,5 +1,6 @@
 class $cf838c15c8b009ba$export$2e2bcd8739ae039 {
-    constructor(container){
+    constructor(options = {}){
+        const { container: container = ".masonry" , debounce: debounce = 200  } = options;
         this.grid = container instanceof HTMLElement ? container : document.querySelector(container);
         this.gridItems = [
             ...this.grid.children
@@ -13,7 +14,7 @@ class $cf838c15c8b009ba$export$2e2bcd8739ae039 {
             this.resizeObserver.unobserve(this.grid);
         });
         this.grid.style.contain = "layout";
-        this.resizeAllItems = this.debounce(this.resizeAllItems.bind(this), 10);
+        this.resizeAllItems = this.debounce(this.resizeAllItems.bind(this), debounce);
     }
     resizeItem(item) {
         const rowHeight = 1;

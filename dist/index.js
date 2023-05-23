@@ -9,7 +9,8 @@ $parcel$defineInteropFlag(module.exports);
 
 $parcel$export(module.exports, "default", () => $4fa36e821943b400$export$2e2bcd8739ae039);
 class $4fa36e821943b400$export$2e2bcd8739ae039 {
-    constructor(container){
+    constructor(options = {}){
+        const { container: container = ".masonry" , debounce: debounce = 200  } = options;
         this.grid = container instanceof HTMLElement ? container : document.querySelector(container);
         this.gridItems = [
             ...this.grid.children
@@ -23,7 +24,7 @@ class $4fa36e821943b400$export$2e2bcd8739ae039 {
             this.resizeObserver.unobserve(this.grid);
         });
         this.grid.style.contain = "layout";
-        this.resizeAllItems = this.debounce(this.resizeAllItems.bind(this), 10);
+        this.resizeAllItems = this.debounce(this.resizeAllItems.bind(this), debounce);
     }
     resizeItem(item) {
         const rowHeight = 1;
