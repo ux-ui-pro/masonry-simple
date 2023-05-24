@@ -7,7 +7,7 @@
 [![GitHub package version](https://img.shields.io/github/package-json/v/ux-ui-pro/masonry-simple.svg)](https://github.com/ux-ui-pro/masonry-simple)
 [![NPM Downloads](https://img.shields.io/npm/dm/masonry-simple.svg?style=flat)](https://www.npmjs.org/package/masonry-simple)
 
-<sup><a href="https://bundlephobia.com/package/masonry-simple">0.7kB gzipped</a></sup>
+<sup><a href="https://bundlephobia.com/package/masonry-simple">600B gzipped</a></sup>
 <h3><a href="https://codepen.io/ux-ui/pen/poxGEqX">Demo</a></h3>
 
 </div>
