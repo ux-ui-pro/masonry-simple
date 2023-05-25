@@ -7,7 +7,7 @@
 [![GitHub package version](https://img.shields.io/github/package-json/v/ux-ui-pro/masonry-simple.svg)](https://github.com/ux-ui-pro/masonry-simple)
 [![NPM Downloads](https://img.shields.io/npm/dm/masonry-simple.svg?style=flat)](https://www.npmjs.org/package/masonry-simple)
 
-<sup><a href="https://bundlephobia.com/package/masonry-simple">600B gzipped</a></sup>
+<sup><a href="https://bundlephobia.com/package/masonry-simple">500B gzipped</a></sup>
 <h3><a href="https://codepen.io/ux-ui/pen/poxGEqX">Demo</a></h3>
 
 </div>
@@ -34,8 +34,7 @@ import MasonrySimple from 'masonry-simple'
 const masonry = new MasonrySimple()
 
 masonry.options({
-	container: '.masonry',
-	timeout: 200
+	container: '.masonry'
 })
 ```
 ```HTML
@@ -55,7 +54,6 @@ masonry.options({
 | Arg | Default | Description |
 | --- | --- | --- |
 | `container` | `'.masonry'` | The HTML class of the element inside which the grid elements will be located. |
-| `debounce` | `200` | Sets the delay when resizing the browser window. `0` &mdash; disables the delay and allows the grid to rebuild faster. |
 <br>
 
 ### License
