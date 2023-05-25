@@ -1,15 +1,15 @@
 {
   "name": "masonry-simple",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Responsive masonry grid",
   "author": "ux-ui.pro",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ux-ui-pro/media-trigger.git"
+    "url": "git+https://github.com/ux-ui-pro/masonry-simple.git"
   },
   "bugs": {
-    "url": "https://github.com/ux-ui-pro/media-trigger/issues"
+    "url": "https://github.com/ux-ui-pro/masonry-simple/issues"
   },
   "source": "src/index.js",
   "main": "dist/index.js",
