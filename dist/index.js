@@ -12,18 +12,15 @@ class $4fa36e821943b400$export$2e2bcd8739ae039 {
     constructor(){
         this.grid = null;
         this.gridItems = [];
-        this.timeout = 200;
-        this.resizeAllItems = this.debounce(this.resizeAllItems.bind(this), this.timeout);
         this.resizeObserver = null;
     }
     options(options = {}) {
-        const { container: container = ".masonry" , timeout: timeout = this.timeout  } = options;
+        const { container: container = ".masonry"  } = options;
         this.grid = container instanceof HTMLElement ? container : document.querySelector(container);
         this.gridItems = Array.from(this.grid.children);
         this.grid.style.contain = "layout";
-        this.resizeObserver = new ResizeObserver(this.debouncedResize);
+        this.resizeObserver = new ResizeObserver(this.resizeAllItems.bind(this));
         this.resizeObserver.observe(this.grid);
-        this.resizeAllItems = this.debounce(this.resizeAllItems.bind(this), timeout);
         this.resizeAllItems();
     }
     resizeItem(item, rowHeight, rowGap) {
@@ -36,24 +33,8 @@ class $4fa36e821943b400$export$2e2bcd8739ae039 {
         this.grid.style.alignItems = "start";
         this.gridItems.forEach((item)=>this.resizeItem(item, rowHeight, rowGap));
         this.grid.style.alignItems = "stretch";
-        setTimeout(()=>{
-            this.gridItems.forEach((item)=>this.resizeItem(item, rowHeight, rowGap));
-        }, 0);
+        this.gridItems.forEach((item)=>this.resizeItem(item, rowHeight, rowGap));
     }
-    debounce(func, wait) {
-        let timeout;
-        return function executedFunction(...args) {
-            const later = ()=>{
-                clearTimeout(timeout);
-                func(...args);
-            };
-            clearTimeout(timeout);
-            timeout = setTimeout(later, wait);
-        };
-    }
-    debouncedResize = ()=>{
-        this.resizeAllItems();
-    };
 }
 
 
