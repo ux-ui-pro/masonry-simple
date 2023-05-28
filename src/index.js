@@ -27,11 +27,19 @@ export default class MasonrySimple {
 	}
 
 	resizeAllItems() {
-		const rowHeight = 1
+		let rowHeight = 1
+
 		const rowGap = parseInt(window.getComputedStyle(this.grid).getPropertyValue('grid-row-gap'))
+
 		this.grid.style.alignItems = 'start'
 		this.gridItems.forEach(item => this.resizeItem(item, rowHeight, rowGap))
-		this.grid.style.alignItems = 'stretch'
-		this.gridItems.forEach(item => this.resizeItem(item, rowHeight, rowGap))
+
+		const newHeight = this.gridItems[0].offsetHeight + rowGap
+
+		if (rowHeight !== newHeight) {
+			rowHeight = newHeight
+			this.grid.style.alignItems = 'stretch'
+			this.gridItems.forEach(item => this.resizeItem(item, rowHeight, rowGap))
+		}
 	}
 }
