@@ -7,6 +7,7 @@ class $cf838c15c8b009ba$export$2e2bcd8739ae039 {
     options(options = {}) {
         const { container: container = ".masonry"  } = options;
         this.grid = container instanceof HTMLElement ? container : document.querySelector(container);
+        if (!this.grid) return;
         this.gridItems = Array.from(this.grid.children);
         this.grid.style.contain = "layout";
         this.resizeObserver = new ResizeObserver(this.resizeAllItems.bind(this));
