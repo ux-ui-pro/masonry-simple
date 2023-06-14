@@ -1,6 +1,6 @@
 {
   "name": "masonry-simple",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Responsive masonry grid",
   "author": "ux-ui.pro",
   "license": "MIT",
@@ -14,14 +14,13 @@
   "source": "src/index.js",
   "main": "dist/index.js",
   "module": "dist/index.module.js",
-  "unpkg": "dist/index.umd.js",
   "scripts": {
     "serve": "parcel watch",
     "build": "parcel build",
     "clean": "rm -rf dist .parcel-cache"
   },
   "devDependencies": {
-    "parcel": "^2.8.3"
+    "parcel": "~2.9.2"
   },
   "keywords": [
     "masonry",
@@ -31,5 +30,3 @@
     "images"
   ]
 }
-
-
