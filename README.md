@@ -7,19 +7,15 @@
 [![GitHub package version](https://img.shields.io/github/package-json/v/ux-ui-pro/masonry-simple.svg)](https://github.com/ux-ui-pro/masonry-simple)
 [![NPM Downloads](https://img.shields.io/npm/dm/masonry-simple.svg?style=flat)](https://www.npmjs.org/package/masonry-simple)
 
-<sup><a href="https://bundlephobia.com/package/masonry-simple">500B gzipped</a></sup>
+<sup>500B gzipped</sup>
 <h3><a href="https://codepen.io/ux-ui/pen/poxGEqX">Demo</a></h3>
 
 </div>
 <br>
 
 ### Installation
-```javascript
-$ yarn add masonry-simple
 ```
-<sup>or</sup>
-```javascript
-$ npm i masonry-simple
+$ yarn add masonry-simple
 ```
 <br>
 
