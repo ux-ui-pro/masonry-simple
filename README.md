@@ -8,7 +8,7 @@
 [![NPM Downloads](https://img.shields.io/npm/dm/masonry-simple.svg?style=flat)](https://www.npmjs.org/package/masonry-simple)
 
 <sup>500B gzipped</sup>
-<h3><a href="https://codepen.io/ux-ui/pen/poxGEqX">Demo</a></h3>
+<h3><a href="https://codepen.io/ux-ui/full/poxGEqX">Demo</a></h3>
 
 </div>
 <br>
