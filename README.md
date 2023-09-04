@@ -7,8 +7,8 @@
 [![GitHub package version](https://img.shields.io/github/package-json/v/ux-ui-pro/masonry-simple.svg)](https://github.com/ux-ui-pro/masonry-simple)
 [![NPM Downloads](https://img.shields.io/npm/dm/masonry-simple.svg?style=flat)](https://www.npmjs.org/package/masonry-simple)
 
-<sup>500B gzipped</sup>
-<h3><a href="https://codepen.io/ux-ui/full/poxGEqX">Demo</a></h3>
+<sup>600B gzipped</sup>
+<h3><a href="https://l6nln6.csb.app/">Demo</a></h3>
 
 </div>
 <br>
@@ -27,9 +27,7 @@ import MasonrySimple from 'masonry-simple'
 
 ### Usage
 ```javascript
-const masonry = new MasonrySimple()
-
-masonry.options({
+const masonrySimple = new MasonrySimple({
 	container: '.masonry'
 })
 ```
@@ -44,12 +42,20 @@ masonry.options({
 	...
 </div>
 ```
+```SCSS
+.masonry {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+	grid-auto-flow: dense;
+	grid-gap: 10px;
+}
+```
 <br>
 
-### Settings
-| Arg | Default | Description |
-| --- | --- | --- |
-| `container` | `'.masonry'` | The HTML class of the element inside which the grid elements will be located. |
+### Destroy
+```javascript
+masonrySimple.destroy()
+```
 <br>
 
 ### License
