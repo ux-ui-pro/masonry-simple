@@ -33,6 +33,7 @@ class $cf838c15c8b009ba$var$MasonrySimple {
         masonry.resizeObserver = new ResizeObserver(masonry.resizeAllItems.bind(masonry));
         masonry.resizeObserver.observe(masonry.grid);
         masonry.resizeAllItems();
+        return masonry;
     }
     destroy() {
         if (this.resizeObserver) {
