@@ -27,34 +27,34 @@ import MasonrySimple from 'masonry-simple'
 
 ### Usage
 ```javascript
-const masonrySimple = new MasonrySimple({
-	container: '.masonry'
+const masonry = MasonrySimple.init({
+  container: masonryRef.value
 })
 ```
 ```HTML
 <div class="masonry">
-	<div class="masonry__item">
-		...
-	</div>
-	<div class="masonry__item">
-		...
-	</div>
-	...
+  <div class="masonry__item">
+    ...
+  </div>
+  <div class="masonry__item">
+    ...
+  </div>
+  ...
 </div>
 ```
 ```SCSS
 .masonry {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-	grid-auto-flow: dense;
-	grid-gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-flow: dense;
+  grid-gap: 10px;
 }
 ```
 <br>
 
 ### Destroy
 ```javascript
-masonrySimple.destroy()
+masonry.destroy()
 ```
 <br>
 

@@ -8,30 +8,41 @@ function $parcel$export(e, n, v, s) {
 $parcel$defineInteropFlag(module.exports);
 
 $parcel$export(module.exports, "default", () => $4fa36e821943b400$export$2e2bcd8739ae039);
-class $4fa36e821943b400$export$2e2bcd8739ae039 {
-    constructor(options = {}){
-        const { container: container = ".masonry" } = options;
+class $4fa36e821943b400$var$MasonrySimple {
+    constructor(){
         this.grid = null;
         this.gridItems = [];
         this.resizeObserver = null;
-        this.container = container;
-        this.grid = this.container instanceof HTMLElement ? this.container : document.querySelector(this.container);
-        if (!this.grid) return;
-        this.gridItems = this.grid.children.length ? Array.from(this.grid.children) : [];
-        this.grid.style.contain = "layout";
-        this.resizeObserver = new ResizeObserver(this.resizeAllItems.bind(this));
-        this.resizeObserver.observe(this.grid);
-        this.resizeAllItems();
+        this.rowHeight = 1;
+        this.requestAnimationFrameId = null;
+        this.pendingResize = false;
     }
-    resizeItem(item, rowHeight, rowGap) {
-        const rowSpan = Math.ceil((item.clientHeight + rowGap) / (rowHeight + rowGap));
-        item.style.gridRowEnd = "span " + rowSpan;
+    resizeItem(item) {
+        const rowSpan = Math.ceil((item.clientHeight + this.rowGap) / (this.rowHeight + this.rowGap));
+        const newItem = item;
+        newItem.style.gridRowEnd = `span ${rowSpan}`;
     }
     resizeAllItems() {
-        const rowHeight = 1;
-        const rowGap = parseInt(window.getComputedStyle(this.grid).getPropertyValue("grid-row-gap"), 10);
-        this.grid.style.alignItems = "start";
-        this.gridItems.forEach((item)=>this.resizeItem(item, rowHeight, rowGap));
+        if (this.pendingResize) return;
+        this.pendingResize = true;
+        if (!this.requestAnimationFrameId) this.requestAnimationFrameId = requestAnimationFrame(()=>{
+            this.grid.style.alignItems = "start";
+            this.gridItems.forEach((item)=>this.resizeItem(item));
+            this.pendingResize = false;
+            this.requestAnimationFrameId = null;
+        });
+    }
+    static init(options = {}) {
+        const { container: container = ".masonry" } = options;
+        const masonry = new $4fa36e821943b400$var$MasonrySimple();
+        masonry.grid = container instanceof HTMLElement ? container : document.querySelector(container);
+        if (!masonry.grid) return;
+        masonry.gridItems = masonry.grid.children.length ? Array.from(masonry.grid.children) : [];
+        masonry.grid.style.contain = "layout";
+        masonry.rowGap = parseInt(window.getComputedStyle(masonry.grid).getPropertyValue("grid-row-gap"), 10);
+        masonry.resizeObserver = new ResizeObserver(masonry.resizeAllItems.bind(masonry));
+        masonry.resizeObserver.observe(masonry.grid);
+        masonry.resizeAllItems();
     }
     destroy() {
         if (this.resizeObserver) {
@@ -41,10 +52,12 @@ class $4fa36e821943b400$export$2e2bcd8739ae039 {
         this.grid.style.contain = "";
         this.grid.style.alignItems = "";
         this.gridItems.forEach((item)=>{
-            item.style.gridRowEnd = "";
+            const newItem = item;
+            newItem.style.gridRowEnd = "";
         });
     }
 }
+var $4fa36e821943b400$export$2e2bcd8739ae039 = $4fa36e821943b400$var$MasonrySimple;
 
 
 //# sourceMappingURL=index.js.map

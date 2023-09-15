@@ -8,3 +8,5 @@ Thumbs.db
 memo.md
 package-lock.json
 yarn.lock
+.eslintignore
+.eslintrc.js

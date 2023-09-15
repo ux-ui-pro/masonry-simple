@@ -1,61 +1,77 @@
-export default class MasonrySimple {
-	constructor(options = {}) {
-		const { container = '.masonry' } = options
+class MasonrySimple {
+  constructor() {
+    this.grid = null;
+    this.gridItems = [];
+    this.resizeObserver = null;
+    this.rowHeight = 1;
+    this.requestAnimationFrameId = null;
+    this.pendingResize = false;
+  }
 
-		this.grid = null
-		this.gridItems = []
-		this.resizeObserver = null
-		this.container = container
-		this.grid =
-			this.container instanceof HTMLElement
-				? this.container
-				: document.querySelector(this.container)
+  resizeItem(item) {
+    const rowSpan = Math.ceil(
+      (item.clientHeight + this.rowGap) / (this.rowHeight + this.rowGap),
+    );
 
-		if (!this.grid) return
+    const newItem = item;
 
-		this.gridItems = this.grid.children.length
-			? Array.from(this.grid.children)
-			: []
-		this.grid.style.contain = 'layout'
-		this.resizeObserver = new ResizeObserver(
-			this.resizeAllItems.bind(this)
-		)
-		this.resizeObserver.observe(this.grid)
+    newItem.style.gridRowEnd = `span ${rowSpan}`;
+  }
 
-		this.resizeAllItems()
-	}
+  resizeAllItems() {
+    if (this.pendingResize) return;
 
-	resizeItem(item, rowHeight, rowGap) {
-		const rowSpan = Math.ceil(
-			(item.clientHeight + rowGap) / (rowHeight + rowGap)
-		)
+    this.pendingResize = true;
 
-		item.style.gridRowEnd = 'span ' + rowSpan
-	}
+    if (!this.requestAnimationFrameId) {
+      this.requestAnimationFrameId = requestAnimationFrame(() => {
+        this.grid.style.alignItems = 'start';
+        this.gridItems.forEach((item) => this.resizeItem(item));
+        this.pendingResize = false;
+        this.requestAnimationFrameId = null;
+      });
+    }
+  }
 
-	resizeAllItems() {
-		const rowHeight = 1
-		const rowGap = parseInt(
-			window.getComputedStyle(this.grid).getPropertyValue('grid-row-gap'),
-			10
-		)
+  static init(options = {}) {
+    const { container = '.masonry' } = options;
+    const masonry = new MasonrySimple();
 
-		this.grid.style.alignItems = 'start'
-		this.gridItems.forEach((item) =>
-			this.resizeItem(item, rowHeight, rowGap)
-		)
-	}
+    masonry.grid = container instanceof HTMLElement ? container : document.querySelector(container);
 
-	destroy() {
-		if (this.resizeObserver) {
-			this.resizeObserver.unobserve(this.grid)
-			this.resizeObserver = null
-		}
+    if (!masonry.grid) return;
 
-		this.grid.style.contain = ''
-		this.grid.style.alignItems = ''
-		this.gridItems.forEach((item) => {
-			item.style.gridRowEnd = ''
-		})
-	}
+    masonry.gridItems = masonry.grid.children.length
+      ? Array.from(masonry.grid.children)
+      : [];
+    masonry.grid.style.contain = 'layout';
+
+    masonry.rowGap = parseInt(
+      window.getComputedStyle(masonry.grid).getPropertyValue('grid-row-gap'),
+      10,
+    );
+
+    masonry.resizeObserver = new ResizeObserver(
+      masonry.resizeAllItems.bind(masonry),
+    );
+
+    masonry.resizeObserver.observe(masonry.grid);
+    masonry.resizeAllItems();
+  }
+
+  destroy() {
+    if (this.resizeObserver) {
+      this.resizeObserver.unobserve(this.grid);
+      this.resizeObserver = null;
+    }
+
+    this.grid.style.contain = '';
+    this.grid.style.alignItems = '';
+    this.gridItems.forEach((item) => {
+      const newItem = item;
+      newItem.style.gridRowEnd = '';
+    });
+  }
 }
+
+export default MasonrySimple;
