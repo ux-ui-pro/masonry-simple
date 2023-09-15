@@ -28,7 +28,7 @@ import MasonrySimple from 'masonry-simple'
 ### Usage
 ```javascript
 const masonry = MasonrySimple.init({
-  container: masonryRef.value
+  container: '.masonry'
 })
 ```
 ```HTML
