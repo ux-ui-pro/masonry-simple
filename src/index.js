@@ -1,11 +1,16 @@
 class MasonrySimple {
-  constructor() {
-    this.container = null;
-    this.gridItems = [];
-    this.rowHeight = 1;
-    this.rowGap = 0;
-    this.resizeTimeout = null;
-    this.resizeObserver = new ResizeObserver(this.handleResize.bind(this));
+  container = null;
+  gridItems = [];
+  rowHeight = 1;
+  rowGap = 0;
+  resizeTimeout = null;
+  resizeObserver = new ResizeObserver(this.handleResize.bind(this));
+
+  constructor(options = {}) {
+    this.container =
+      options.container instanceof HTMLElement
+        ? options.container
+        : document.querySelector(options.container || '.masonry');
   }
 
   handleResize() {
@@ -25,28 +30,20 @@ class MasonrySimple {
         (item.clientHeight + this.rowGap) / (this.rowHeight + this.rowGap)
       );
 
-      item.style.gridRowEnd = `span ${ rowSpan }`;
+      item.style.gridRowEnd = `span ${rowSpan}`;
     });
   }
 
-  static init(options = {}) {
-    const { container = '.masonry' } = options;
-    const masonry = new MasonrySimple();
+  init() {
+    if (!this.container) return;
 
-    masonry.container =
-      container instanceof HTMLElement
-        ? container
-        : document.querySelector(container);
+    const { rowGap } = getComputedStyle(this.container);
 
-    if (!masonry.container) return;
-
-    masonry.gridItems = Array.from(masonry.container.children);
-    masonry.container.style.contain = 'layout';
-    masonry.rowGap = parseInt(getComputedStyle(masonry.container).rowGap, 10);
-    masonry.resizeObserver.observe(masonry.container);
-    masonry.resizeAllItems();
-
-    return masonry;
+    this.gridItems = Array.from(this.container.children);
+    this.container.style.contain = 'layout';
+    this.rowGap = parseInt(rowGap, 10);
+    this.resizeObserver.observe(this.container);
+    this.resizeAllItems();
   }
 
   destroy() {

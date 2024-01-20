@@ -7,8 +7,8 @@
 [![GitHub package version](https://img.shields.io/github/package-json/v/ux-ui-pro/masonry-simple.svg)](https://github.com/ux-ui-pro/masonry-simple)
 [![NPM Downloads](https://img.shields.io/npm/dm/masonry-simple.svg?style=flat)](https://www.npmjs.org/package/masonry-simple)
 
-<sup>500B gzipped</sup>
-<h3><a href="https://l6nln6.csb.app/">Demo</a></h3>
+<sup>600B gzipped</sup>
+<p align="center"><a href="https://l6nln6.csb.app/">codesandbox</a> / <a href="https://codepen.io/ux-ui/pen/poxGEqX">codepen</a></p>
 
 </div>
 <br>
@@ -21,15 +21,17 @@ $ yarn add masonry-simple
 
 ### Import
 ```javascript
-import MasonrySimple from 'masonry-simple'
+import MasonrySimple from 'masonry-simple';
 ```
 <br>
 
 ### Usage
 ```javascript
-const masonry = MasonrySimple.init({
-  container: '.masonry'
-})
+const masonry = new MasonrySimple({
+  container: '.masonry',
+});
+
+masonry.init();
 ```
 ```HTML
 <div class="masonry">
@@ -54,7 +56,7 @@ const masonry = MasonrySimple.init({
 
 ### Destroy
 ```javascript
-masonry.destroy()
+masonry.destroy();
 ```
 <br>
 
