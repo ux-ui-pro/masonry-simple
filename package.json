@@ -1,6 +1,6 @@
 {
   "name": "masonry-simple",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Responsive masonry grid",
   "author": "ux-ui.pro",
   "license": "MIT",
@@ -11,20 +11,26 @@
   "bugs": {
     "url": "https://github.com/ux-ui-pro/masonry-simple/issues"
   },
-  "source": "src/index.js",
   "main": "dist/index.js",
   "module": "dist/index.module.js",
+  "targets": {
+    "main": {
+      "source": "src/index.js"
+    },
+    "module": {
+      "source": "src/index.js"
+    }
+  },
   "scripts": {
-    "serve": "parcel watch",
-    "build": "parcel build",
     "clean": "rm -rf dist .parcel-cache",
-    "lint": "eslint --ext .js,.vue --report-unused-disable-directives ."
+    "build": "yarn clean && parcel build",
+    "lint:js": "eslint --ext .js",
+    "lintfix": "yarn lint:js --fix"
   },
   "devDependencies": {
-    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint": "^7.32.0 || ^8.56.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.25.2",
-    "parcel": "~2.9.3"
+    "parcel": "^2.11.0"
   },
   "keywords": [
     "masonry",
