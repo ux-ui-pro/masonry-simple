@@ -1,6 +1,8 @@
+
 function $parcel$defineInteropFlag(a) {
   Object.defineProperty(a, '__esModule', {value: true, configurable: true});
 }
+
 function $parcel$export(e, n, v, s) {
   Object.defineProperty(e, n, {get: v, set: s, enumerable: true, configurable: true});
 }
@@ -14,14 +16,20 @@ class $4fa36e821943b400$var$MasonrySimple {
         this.gridItems = [];
         this.rowHeight = 1;
         this.rowGap = 0;
-        this.resizeObserver = new ResizeObserver(this.resizeAllItems.bind(this));
+        this.resizeTimeout = null;
+        this.resizeObserver = new ResizeObserver(this.handleResize.bind(this));
+    }
+    handleResize() {
+        if (this.resizeTimeout) window.cancelAnimationFrame(this.resizeTimeout);
+        this.resizeTimeout = window.requestAnimationFrame(()=>{
+            this.resizeAllItems();
+        });
     }
     resizeAllItems() {
         this.container.style.alignItems = "start";
         this.gridItems.forEach((item)=>{
             const rowSpan = Math.ceil((item.clientHeight + this.rowGap) / (this.rowHeight + this.rowGap));
-            const newItem = item;
-            newItem.style.gridRowEnd = `span ${rowSpan}`;
+            item.style.gridRowEnd = `span ${rowSpan}`;
         });
     }
     static init(options = {}) {
@@ -41,8 +49,7 @@ class $4fa36e821943b400$var$MasonrySimple {
         this.container.style.contain = "";
         this.container.style.alignItems = "";
         this.gridItems.forEach((item)=>{
-            const newItem = item;
-            newItem.style.gridRowEnd = "";
+            item.style.gridRowEnd = "";
         });
     }
 }

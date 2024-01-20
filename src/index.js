@@ -4,19 +4,28 @@ class MasonrySimple {
     this.gridItems = [];
     this.rowHeight = 1;
     this.rowGap = 0;
-    this.resizeObserver = new ResizeObserver(this.resizeAllItems.bind(this));
+    this.resizeTimeout = null;
+    this.resizeObserver = new ResizeObserver(this.handleResize.bind(this));
+  }
+
+  handleResize() {
+    if (this.resizeTimeout) {
+      window.cancelAnimationFrame(this.resizeTimeout);
+    }
+
+    this.resizeTimeout = window.requestAnimationFrame(() => {
+      this.resizeAllItems();
+    });
   }
 
   resizeAllItems() {
     this.container.style.alignItems = 'start';
     this.gridItems.forEach((item) => {
       const rowSpan = Math.ceil(
-        (item.clientHeight + this.rowGap) / (this.rowHeight + this.rowGap),
+        (item.clientHeight + this.rowGap) / (this.rowHeight + this.rowGap)
       );
 
-      const newItem = item;
-
-      newItem.style.gridRowEnd = `span ${rowSpan}`;
+      item.style.gridRowEnd = `span ${ rowSpan }`;
     });
   }
 
@@ -24,9 +33,10 @@ class MasonrySimple {
     const { container = '.masonry' } = options;
     const masonry = new MasonrySimple();
 
-    masonry.container = container instanceof HTMLElement
-      ? container
-      : document.querySelector(container);
+    masonry.container =
+      container instanceof HTMLElement
+        ? container
+        : document.querySelector(container);
 
     if (!masonry.container) return;
 
@@ -44,9 +54,7 @@ class MasonrySimple {
     this.container.style.contain = '';
     this.container.style.alignItems = '';
     this.gridItems.forEach((item) => {
-      const newItem = item;
-
-      newItem.style.gridRowEnd = '';
+      item.style.gridRowEnd = '';
     });
   }
 }
