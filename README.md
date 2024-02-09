@@ -1,21 +1,35 @@
-<div align="center">
 <br>
+<div align="center">
 
-<h1>masonry-simple</h1>
+# masonry-simple
+The MasonrySimple class is designed to create a masonry layout of elements on a page. Vue friendly.
 
 [![npm](https://img.shields.io/npm/v/masonry-simple.svg?colorB=brightgreen)](https://www.npmjs.com/package/masonry-simple)
 [![GitHub package version](https://img.shields.io/github/package-json/v/ux-ui-pro/masonry-simple.svg)](https://github.com/ux-ui-pro/masonry-simple)
 [![NPM Downloads](https://img.shields.io/npm/dm/masonry-simple.svg?style=flat)](https://www.npmjs.org/package/masonry-simple)
 
 <sup>600B gzipped</sup>
-<p align="center"><a href="https://l6nln6.csb.app/">codesandbox</a> / <a href="https://codepen.io/ux-ui/pen/poxGEqX">codepen</a></p>
+
+<a href="https://l6nln6.csb.app/">codesandbox</a> / <a href="https://codepen.io/ux-ui/pen/poxGEqX">codepen</a>
+
+<br>
+
+![kitten.gif](kitten.gif)
+
+Thank you for your interest in masonry-simple! I'm glad to see it's being used.<br>If you'd like to support it, it would be great if you could leave a [star on GitHub](https://github.com/ux-ui-pro/masonry-simple).
 
 </div>
+
 <br>
 
 ### Installation
-```
+<sub>**Recommended**</sub>
+```console
 $ yarn add masonry-simple
+```
+<sub>**Not recommended**<br>Import the [masonry-simple.min.js](https://github.com/ux-ui-pro/masonry-simple/blob/master/dist/masonry-simple.min.js) file using the `<script>` tag. You can [download it here](https://github.com/ux-ui-pro/masonry-simple/releases/latest). In this connection method, no initialisation is required and it is mandatory to specify the `.masonry' class for the html container.</sub>
+```html
+<script src="path-to-the-file/masonry-simple.min.js"></script>
 ```
 <br>
 
@@ -26,6 +40,9 @@ import MasonrySimple from 'masonry-simple';
 <br>
 
 ### Usage
+
+<sub>The container can be specified in the following formats: a string value representing the class or id of an element in the DOM, such as '.masonry' or '#masonry'. A Vue reactive reference that contains a DOM element.</sub>
+
 ```javascript
 const masonry = new MasonrySimple({
   container: '.masonry',

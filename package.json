@@ -1,6 +1,6 @@
 {
   "name": "masonry-simple",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Responsive masonry grid",
   "author": "ux-ui.pro",
   "license": "MIT",
@@ -22,10 +22,11 @@
     }
   },
   "scripts": {
-    "clean": "rm -rf dist .parcel-cache",
-    "build": "yarn clean && parcel build",
     "lint:js": "eslint --ext .js",
-    "lintfix": "yarn lint:js --fix"
+    "lintfix": "yarn lint:js --fix",
+    "clean": "rm -rf dist .parcel-cache",
+    "minify": "swc src/masonry-simple.js -o dist/masonry-simple.min.js --config-file .swcrc",
+    "build": "yarn clean && yarn minify && parcel build"
   },
   "devDependencies": {
     "eslint": "^7.32.0 || ^8.56.0",
@@ -37,6 +38,7 @@
     "layout",
     "grid",
     "gallery",
-    "images"
+    "images",
+    "vue"
   ]
 }
