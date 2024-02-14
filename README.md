@@ -12,17 +12,12 @@ The MasonrySimple class is designed to create a masonry layout of elements on a 
 
 <a href="https://l6nln6.csb.app/">codesandbox</a> / <a href="https://codepen.io/ux-ui/pen/poxGEqX">codepen</a>
 
-<br>
-
-![kitten.gif](kitten.gif)
-
-Thank you for your interest in masonry-simple! I'm glad to see it's being used.<br>If you'd like to support it, it would be great if you could leave a [star on GitHub](https://github.com/ux-ui-pro/masonry-simple).
-
 </div>
 
 <br>
 
-### Installation
+&#10148; **Installation**
+
 <sub>**Recommended**</sub>
 ```console
 $ yarn add masonry-simple
@@ -33,13 +28,13 @@ $ yarn add masonry-simple
 ```
 <br>
 
-### Import
+&#10148; **Import**
 ```javascript
 import MasonrySimple from 'masonry-simple';
 ```
 <br>
 
-### Usage
+&#10148; **Usage**
 
 <sub>The container can be specified in the following formats: a string value representing the class or id of an element in the DOM, such as '.masonry' or '#masonry'. A Vue reactive reference that contains a DOM element.</sub>
 
@@ -71,11 +66,12 @@ masonry.init();
 ```
 <br>
 
-### Destroy
+&#10148; **Destroy**
 ```javascript
 masonry.destroy();
 ```
 <br>
 
-### License
+&#10148; **License**
+
 <sup>masonry-simple is released under MIT license</sup>
