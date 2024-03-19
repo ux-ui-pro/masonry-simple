@@ -29,6 +29,8 @@
     "build": "yarn clean && yarn minify && parcel build"
   },
   "devDependencies": {
+    "@swc/cli": "^0.3.10",
+    "@swc/core": "^1.4.8",
     "eslint": "^7.32.0 || ^8.57.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "parcel": "^2.12.0"
