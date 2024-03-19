@@ -10,7 +10,7 @@ The MasonrySimple class is designed to create a masonry layout of elements on a 
 
 <sup>600B gzipped</sup>
 
-<a href="https://l6nln6.csb.app/">codesandbox</a> / <a href="https://codepen.io/ux-ui/pen/poxGEqX">codepen</a>
+<a href="https://codepen.io/ux-ui/pen/poxGEqX">DEMO</a>
 
 </div>
 
