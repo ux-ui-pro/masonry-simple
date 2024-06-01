@@ -1,8 +1,9 @@
-<br>
 <div align="center">
+<br>
 
-# masonry-simple
-The MasonrySimple class is designed to create a masonry layout of elements on a page. Vue friendly.
+<h1>masonry-simple</h1>
+
+<p><sup>MasonrySimple implements a simple system for placing masonry style elements using CSS Grid. Masonry placement is used for dynamic grids where elements may have different heights and need to be placed neatly without gaps.</sup></p>
 
 [![npm](https://img.shields.io/npm/v/masonry-simple.svg?colorB=brightgreen)](https://www.npmjs.com/package/masonry-simple)
 [![GitHub package version](https://img.shields.io/github/package-json/v/ux-ui-pro/masonry-simple.svg)](https://github.com/ux-ui-pro/masonry-simple)
@@ -10,21 +11,14 @@ The MasonrySimple class is designed to create a masonry layout of elements on a 
 
 <sup>600B gzipped</sup>
 
-<a href="https://codepen.io/ux-ui/pen/poxGEqX">DEMO</a>
+<a href="https://codepen.io/ux-ui/pen/poxGEqX">Demo</a>
 
 </div>
-
 <br>
 
-&#10148; **Installation**
-
-<sub>**Recommended**</sub>
+&#10148; **Install**
 ```console
 $ yarn add masonry-simple
-```
-<sub>**Not recommended**<br>Import the [masonry-simple.min.js](https://github.com/ux-ui-pro/masonry-simple/blob/master/dist/masonry-simple.min.js) file using the `<script>` tag. You can [download it here](https://github.com/ux-ui-pro/masonry-simple/releases/latest). In this connection method, no initialisation is required and it is mandatory to specify the `.masonry' class for the html container.</sub>
-```html
-<script src="path-to-the-file/masonry-simple.min.js"></script>
 ```
 <br>
 
@@ -35,9 +29,6 @@ import MasonrySimple from 'masonry-simple';
 <br>
 
 &#10148; **Usage**
-
-<sub>The container can be specified in the following formats: a string value representing the class or id of an element in the DOM, such as '.masonry' or '#masonry'. A Vue reactive reference that contains a DOM element.</sub>
-
 ```javascript
 const masonry = new MasonrySimple({
   container: '.masonry',
@@ -74,4 +65,4 @@ masonry.destroy();
 
 &#10148; **License**
 
-<sup>masonry-simple is released under MIT license</sup>
+masonry-simple is released under MIT license
