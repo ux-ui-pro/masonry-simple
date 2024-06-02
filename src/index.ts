@@ -1,16 +1,20 @@
 class MasonrySimple {
   private readonly container: HTMLElement | null = null;
+
   private gridItems: HTMLElement[] = [];
+
   private rowHeight: number = 1;
+
   private rowGap: number = 0;
+
   private resizeTimeout: number | null = null;
+
   private resizeObserver: ResizeObserver;
 
   constructor(options: { container?: HTMLElement | string } = {}) {
-    this.container =
-      options.container instanceof HTMLElement
-        ? options.container
-        : document.querySelector(options.container || '.masonry') as HTMLElement;
+    this.container = options.container instanceof HTMLElement
+      ? options.container
+      : document.querySelector(options.container || '.masonry') as HTMLElement;
 
     this.resizeObserver = new ResizeObserver(() => this.handleResize());
   }
@@ -29,10 +33,12 @@ class MasonrySimple {
     this.container.style.alignItems = 'start';
     this.gridItems.forEach((item) => {
       const rowSpan = Math.ceil(
-        (item.clientHeight + this.rowGap) / (this.rowHeight + this.rowGap)
+        (item.clientHeight + this.rowGap) / (this.rowHeight + this.rowGap),
       );
 
-      item.style.gridRowEnd = `span ${rowSpan}`;
+      const { style } = item;
+
+      style.gridRowEnd = `span ${rowSpan}`;
     });
   }
 
@@ -48,6 +54,7 @@ class MasonrySimple {
     this.container.style.contain = 'layout';
     this.resizeObserver.observe(this.container);
     this.gridItems.forEach((item) => this.resizeObserver.observe(item));
+
     this.resizeAllItems();
   }
 
@@ -60,7 +67,9 @@ class MasonrySimple {
     this.container.style.contain = '';
     this.container.style.alignItems = '';
     this.gridItems.forEach((item) => {
-      item.style.gridRowEnd = '';
+      const { style } = item;
+
+      style.gridRowEnd = '';
     });
   }
 }

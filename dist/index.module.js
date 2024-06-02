@@ -18,7 +18,8 @@ class $643fcf18b2d2e76f$var$MasonrySimple {
         this.container.style.alignItems = "start";
         this.gridItems.forEach((item)=>{
             const rowSpan = Math.ceil((item.clientHeight + this.rowGap) / (this.rowHeight + this.rowGap));
-            item.style.gridRowEnd = `span ${rowSpan}`;
+            const { style: style } = item;
+            style.gridRowEnd = `span ${rowSpan}`;
         });
     }
     init() {
@@ -39,7 +40,8 @@ class $643fcf18b2d2e76f$var$MasonrySimple {
         this.container.style.contain = "";
         this.container.style.alignItems = "";
         this.gridItems.forEach((item)=>{
-            item.style.gridRowEnd = "";
+            const { style: style } = item;
+            style.gridRowEnd = "";
         });
     }
 }
