@@ -1,6 +1,6 @@
 {
   "name": "masonry-simple",
-  "version": "3.2.1",
+  "version": "4.0.0",
   "description": "MasonrySimple implements a simple system for placing masonry style elements using CSS Grid. Masonry placement is used for dynamic grids where elements may have different heights and need to be placed neatly without gaps.",
   "author": "ux-ui.pro",
   "license": "MIT",
@@ -17,7 +17,9 @@
     "clean": "rm -rf dist .parcel-cache",
     "build": "yarn clean && parcel build",
     "lint:js": "eslint **/*.{ts,js}",
-    "lintfix": "yarn lint:js --fix"
+    "lint:fix:js": "eslint **/*.{ts,js} --fix",
+    "format:js": "prettier --write **/*.{ts,js}",
+    "lint:fix": "yarn lint:fix:js && yarn format:js"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "source": "src/index.ts",
@@ -25,15 +27,18 @@
   "module": "dist/index.module.js",
   "types": "dist/index.d.ts",
   "devDependencies": {
-    "@parcel/packager-ts": "2.12.0",
-    "@parcel/transformer-typescript-types": "2.12.0",
-    "@typescript-eslint/eslint-plugin": "^7.11.0",
-    "@typescript-eslint/parser": "^7.11.0",
-    "eslint": "^7.32.0 || ^8.57.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.29.1",
+    "@eslint/js": "^9.12.0",
+    "@parcel/packager-ts": "^2.12.0",
+    "@parcel/transformer-typescript-types": "^2.12.0",
+    "@typescript-eslint/eslint-plugin": "^8.9.0",
+    "@typescript-eslint/parser": "^8.9.0",
+    "eslint": "^9.12.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "globals": "^15.11.0",
     "parcel": "^2.12.0",
-    "typescript": "^5.4.5"
+    "prettier": "^3.3.3",
+    "typescript": "5.4.5"
   },
   "keywords": [
     "masonry",
