@@ -19,12 +19,6 @@ export default defineConfig({
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
-      external: ['gsap'],
-      output: {
-        globals: {
-          gsap: 'gsap',
-        },
-      },
       plugins: [
         terser({
           compress: {

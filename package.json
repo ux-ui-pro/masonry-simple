@@ -1,6 +1,6 @@
 {
   "name": "masonry-simple",
-  "version": "4.1.0",
+  "version": "4.2.0",
   "description": "MasonrySimple implements a simple system for placing masonry style elements using CSS Grid. Masonry placement is used for dynamic grids where elements may have different heights and need to be placed neatly without gaps.",
   "author": "ux-ui.pro",
   "license": "MIT",
@@ -24,9 +24,9 @@
   "source": "src/index.ts",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
+  "browser": "./dist/index.umd.js",
   "types": "dist/index.d.ts",
   "exports": {
-    "types": "./dist/index.d.ts",
     "import": "./dist/index.es.js",
     "require": "./dist/index.cjs.js"
   },
