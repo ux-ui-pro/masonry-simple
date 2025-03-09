@@ -1,3 +1,7 @@
+interface MasonrySimpleOptions {
+  container?: HTMLElement | string;
+}
+
 class MasonrySimple {
   private container: HTMLElement | null;
   private gridItems: HTMLElement[] = [];
@@ -6,7 +10,7 @@ class MasonrySimple {
   private resizeObserver: ResizeObserver | null = null;
   private abortController: AbortController | null = null;
 
-  constructor(options: { container?: HTMLElement | string } = {}) {
+  constructor(options: MasonrySimpleOptions = {}) {
     this.container =
       options.container instanceof HTMLElement
         ? options.container
@@ -16,17 +20,11 @@ class MasonrySimple {
   }
 
   private handleResize(): void {
-    const callback = (): void => this.resizeAllItems();
-
-    (
-      window as Window &
-        typeof globalThis & {
-          requestIdleCallback: (
-            callback: IdleRequestCallback,
-            options?: IdleRequestOptions,
-          ) => void;
-        }
-    ).requestIdleCallback(callback, { timeout: 200 });
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(() => this.resizeAllItems(), { timeout: 200 });
+    } else {
+      setTimeout(() => this.resizeAllItems(), 200);
+    }
   }
 
   private resizeAllItems(): void {
@@ -44,47 +42,48 @@ class MasonrySimple {
     if (!this.container) return;
 
     this.setupAbortController();
-    this.setupResizeObserver();
     this.initializeContainerStyles();
     this.initializeGridItems();
+    this.setupResizeObserver();
     this.resizeAllItems();
   }
 
   private setupAbortController(): void {
     this.abortController = new AbortController();
     this.abortController.signal.addEventListener('abort', () => {
-      if (this.resizeObserver) {
-        this.resizeObserver.disconnect();
-      }
+      this.resizeObserver?.disconnect();
     });
   }
 
   private setupResizeObserver(): void {
     this.resizeObserver = new ResizeObserver(() => this.handleResize());
 
-    if (this.resizeObserver) {
-      this.resizeObserver.observe(this.container!);
+    if (this.resizeObserver && this.container) {
+      this.resizeObserver.observe(this.container);
       this.gridItems.forEach((item) => this.resizeObserver!.observe(item));
     }
   }
 
   private initializeContainerStyles(): void {
-    const computedStyle = getComputedStyle(this.container!);
+    if (!this.container) return;
+
+    const computedStyle = getComputedStyle(this.container);
 
     this.rowGap = parseInt(computedStyle.rowGap, 10) || 0;
     this.rowHeight = parseInt(computedStyle.gridAutoRows, 10) || this.rowHeight;
-
-    this.container!.style.contain = 'layout';
+    this.container.style.contain = 'layout';
   }
 
   private initializeGridItems(): void {
-    this.gridItems = Array.from(this.container!.children) as HTMLElement[];
+    if (!this.container) return;
+
+    this.gridItems = Array.from(this.container.children) as HTMLElement[];
   }
 
   public destroy(): void {
-    if (!this.container || !this.abortController || !this.resizeObserver) return;
+    if (!this.container) return;
 
-    this.abortController.abort();
+    this.abortController?.abort();
 
     this.container.style.contain = '';
     this.container.style.alignItems = '';
