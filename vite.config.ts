@@ -15,7 +15,7 @@ export default defineConfig({
     lib: {
       entry: 'src/index.ts',
       name: 'MasonrySimple',
-      formats: ['es', 'cjs', 'umd'],
+      formats: ['es', 'cjs'],
       fileName: (format) => `index.${format}.js`,
     },
     emptyOutDir: true,
@@ -42,9 +42,5 @@ export default defineConfig({
         assetFileNames: 'index.[ext]',
       },
     },
-  },
-  server: {
-    open: true,
-    port: 3000,
   },
 });
