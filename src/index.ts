@@ -118,7 +118,7 @@ export default class MasonrySimple {
     const parsed = parseInt(cs.gridAutoRows, 10);
 
     this.rowHeight = Number.isNaN(parsed) ? this.rowHeight : parsed;
-    this.container.style.contain = 'layout size';
+    this.container.style.contain = 'layout';
   }
 
   private initializeGridItems(): void {

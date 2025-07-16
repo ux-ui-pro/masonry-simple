@@ -1,6 +1,6 @@
 {
   "name": "masonry-simple",
-  "version": "4.3.0",
+  "version": "4.4.0",
   "description": "MasonrySimple implements a simple system for placing masonry style elements using CSS Grid. Masonry placement is used for dynamic grids where elements may have different heights and need to be placed neatly without gaps.",
   "author": "ux-ui.pro",
   "license": "MIT",
@@ -36,21 +36,21 @@
     "dist/"
   ],
   "devDependencies": {
-    "@eslint/js": "9.26.0",
+    "@eslint/js": "9.31.0",
     "@rollup/plugin-terser": "0.4.4",
-    "@types/node": "22.15.3",
-    "@typescript-eslint/eslint-plugin": "8.31.1",
-    "@typescript-eslint/parser": "8.31.1",
-    "eslint": "9.26.0",
-    "eslint-config-prettier": "10.1.2",
-    "eslint-import-resolver-typescript": "4.3.4",
-    "eslint-plugin-import": "2.31.0",
-    "globals": "16.0.0",
-    "prettier": "3.5.3",
+    "@types/node": "24.0.14",
+    "@typescript-eslint/eslint-plugin": "8.37.0",
+    "@typescript-eslint/parser": "8.37.0",
+    "eslint": "9.31.0",
+    "eslint-config-prettier": "10.1.5",
+    "eslint-import-resolver-typescript": "4.4.4",
+    "eslint-plugin-import": "2.32.0",
+    "globals": "16.3.0",
+    "prettier": "3.6.2",
     "rimraf": "6.0.1",
     "typescript": "5.8.3",
-    "vite": "6.3.4",
-    "vite-plugin-dts": "4.5.3"
+    "vite": "7.0.4",
+    "vite-plugin-dts": "4.5.4"
   },
   "keywords": [
     "masonry",
