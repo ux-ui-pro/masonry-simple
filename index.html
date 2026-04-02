@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MasonrySimple • Dev</title>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        padding: 20px;
+        font-family: Inter, Segoe UI, Roboto, sans-serif;
+        background: #121212;
+        color: #121212;
+      }
+
+      .masonry {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-auto-flow: dense;
+        gap: 0;
+        margin: auto;
+        width: min(100% - 60px, 1200px);
+
+        @media (width >= 992px) {
+          grid-template-columns: 0.9fr 1.3fr 0.7fr;
+        }
+      }
+
+      .masonry__item {
+        padding: 8px;
+        background-color: Gainsboro;
+        box-shadow: 0 0 0 3px inset Crimson;
+      }
+
+      .masonry__item img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        object-position: center;
+      }
+    </style>
+  </head>
+  <body>
+    <button>destroy</button>
+
+    <div class="masonry">
+      <div class="masonry__item">Tis better to have loved and lost Than never to have loved at all. Knowledge comes, but Wisdom lingers.</div>
+      <div class="masonry__item"><img src="//fastly.picsum.photos/id/634/180/100.jpg?hmac=qB-PFAiiEVuXFwVxRbYUzImrQ4RZ2np6oWeK-XHPnXk" alt=""/></div>
+      <div class="masonry__item">Shall I compare thee to a summer's day? Thou art more lovely and more temperate: Rough winds do shake the darling buds of May, And summer's lease hath all too short a date…</div>
+      <div class="masonry__item">I know that I shall meet my fate Somewhere among the clouds above; Those that I fight I do not hate, Those that I guard I do not love…</div>
+      <div class="masonry__item">She walks in beauty, like the night Of cloudless climes and starry skies; And all that’s best of dark and bright Meet in her aspect and her eyes.</div>
+      <div class="masonry__item">Now merci, swete, yf I mysseye! Have I seyd oght amys, I preye? I noot; my wit is al aweye. I fare as doth the song of Chaunte-pleure For now I pleyne, and now I pleye; I am so mased that I deye; Arcite hath born awey the keye Of al my world, and my good aventure. For in this world nis creature Wakynge in more discomfiture Then I, ne more sorowe endure. And yf I slepe a furlong wey or tweye, Then thynketh me that your figure Before me stont, clad in asure, To profren eft and newe assure For to be trewe, and merci me to preye.</div>
+      <div class="masonry__item">Iamque domos patrias Cithice post aspera gentis Prelia laurigero subeunte Thesea curru Letifici plausus missusque ad sidera vulgi</div>
+      <div class="masonry__item"><img src="//fastly.picsum.photos/id/1050/180/100.jpg?hmac=f9i0nGYKBetkohJors44GETXmUhSbLcXMUlSvMCluJY" alt=""/></div>
+      <div class="masonry__item">Be favorable eke, thou Polymya, On Parnaso that with thy sustres glade, By Elycon, not fer from Cirrea, Singest with vois memorial in the shade, Under the laurer which that may not fade, And do that I my ship to haven wynne. First folowe I Stace, and after him Corynne.</div>
+      <div class="masonry__item">The compleynt of Anelida the quene upon fals Arcite.</div>
+      <div class="masonry__item">So thirleth with the poynt of remembraunce The swerd of sorowe, ywhet with fals plesaunce, Myn herte, bare of blis and blak of hewe, That turned is in quakyng al my daunce, My surete in awhaped countenaunce, Sith hit availeth not for to ben trewe; For whoso trewest is, hit shal hir rewe That serveth love and doth her observaunce Alwey til oon, and chaungeth for no newe.</div>
+      <div class="masonry__item"><img src="//fastly.picsum.photos/id/719/180/100.jpg?hmac=_Toti9aQVjjnNHabofyq_la4a0kIFSDp3o65zxnvtRY" alt=""/></div>
+      <div class="masonry__item">Now is he fals, alas, and causeles, And of my wo he is so routheles That with a word him list not ones deyne To bringe ayen my sorowful herte in pes, For he is caught up in another les. Ryght as him list, he laugheth at my peyne, And I ne can myn herte not restreyne For to love him alwey neveretheles; And of al this I not to whom me pleyne.</div>
+      <div class="masonry__item">April is the cruellest month, breeding Lilacs out of the dead land, mixing Memory and desire, stirring Dull roots with spring rain.</div>
+      <div class="masonry__item">Ryght as him list, he laugheth at my peyne, And I ne can myn herte not restreyne For to love him alwey neveretheles; And of al this I not to whom me pleyne.</div>
+    </div>
+
+    <script type="module">
+      import MasonrySimple from './src/index.ts';
+
+      const masonrySimple = new MasonrySimple({
+        container: '.masonry',
+      });
+
+      masonrySimple.init();
+
+      // Demo
+      const button = document.querySelector('button');
+
+      button.addEventListener('click', () => {
+        if (button.textContent === 'destroy') {
+          masonrySimple.destroy();
+          button.textContent = 'init';
+        } else if (button.textContent === 'init') {
+          masonrySimple.init();
+          button.textContent = 'destroy';
+        }
+      });
+    </script>
+  </body>
+</html>

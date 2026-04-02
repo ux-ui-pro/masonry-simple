@@ -1,14 +1,21 @@
 {
   "compilerOptions": {
+    "resolveJsonModule": true,
     "isolatedModules": true,
-    "target": "ESNext",
+    "target": "ES2022",
     "module": "ESNext",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node",
-    "noImplicitAny": true
+    "moduleResolution": "bundler",
+    "noImplicitAny": true,
+    "lib": ["ES2022", "DOM"],
+    "rootDir": ".",
+    "outDir": "dist",
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true
   },
-  "include": ["src", "vite-env.d.ts", "vite.config.ts"]
+  "include": ["src/**/*.ts", "vite-env.d.ts", "vite.config.ts", "tests/**/*.js"]
 }

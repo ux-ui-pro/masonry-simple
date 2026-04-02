@@ -8,8 +8,6 @@ memo.md
 
 # Build & Packages
 node_modules/
-.parcel*
-parcel-*
 pnpm-*
 dist/
 
