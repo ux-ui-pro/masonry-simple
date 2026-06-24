@@ -2,10 +2,19 @@
 
 A lightweight masonry layout helper built on top of CSS Grid.
 
+[![npm](https://img.shields.io/npm/v/masonry-simple.svg?colorB=brightgreen)](https://www.npmjs.com/package/masonry-simple)
+[![NPM Downloads](https://img.shields.io/npm/dm/masonry-simple.svg?style=flat)](https://www.npmjs.com/package/masonry-simple)
+
+[Demo](https://codepen.io/ux-ui/pen/poxGEqX)
+
+---
+
 - Idempotent lifecycle: `init()`, `refresh()`, `destroy()`.
 - Unified layout scheduling for resize, mutations, image load, and manual refresh.
 - Safe teardown with observer/listener cleanup and inline-style restoration.
 - Supports dynamic image content and responsive CSS changes.
+
+---
 
 ## Install
 
