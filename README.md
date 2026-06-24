@@ -10,7 +10,7 @@ A lightweight masonry layout helper built on top of CSS Grid.
 ## Install
 
 ```bash
-yarn add masonry-simple
+npm install masonry-simple
 ```
 
 ## Usage (TypeScript)

@@ -19,10 +19,6 @@ dist/
 *.log
 *.txt
 
-# Package managers lock files
-package-lock.json
-yarn.lock
-
 # Environment files
 .env
 .env.development

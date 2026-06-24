@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-const api = await import('../dist/index.es.js').catch(() => null);
+const api = await import('../dist/index.js').catch(() => null);
 
 const MasonrySimple = api?.default;
 
